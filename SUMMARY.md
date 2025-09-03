@@ -28,7 +28,6 @@
   * [Cache Configuration](installation/configuration-file/cache-configuration.md)
   * [Cadence Configuration](installation/configuration-file/cadence-configuration.md)
   * [Network Policy File](installation/configuration-file/network-policy-file.md)
-* [Repositories](installation/repositories.md)
 
 ## Execution
 
