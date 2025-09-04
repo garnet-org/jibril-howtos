@@ -45,7 +45,7 @@ trap cleanup EXIT
 
 # Default values
 NAMESPACE="security"
-IMAGE="garnetlabs/jibril:v2.5"
+IMAGE="garnetlabs/jibril:v2.6"
 # IMAGE="garnetlabs/jibril:v0.0" # daily builds
 LOG_LEVEL="info"
 MEMORY_REQUEST="512Mi"
@@ -65,7 +65,7 @@ show_help() {
   echo
   echo "Options:"
   echo "  --namespace=NAME        Set Kubernetes namespace (default: security)"
-  echo "  --image=IMAGE           Set Jibril container image (default: garnetlabs/jibril:v0.0)"
+  echo "  --image=IMAGE           Set Jibril container image (default: garnetlabs/jibril:v2.6)"
   echo "  --log-level=LEVEL       Set log level: quiet, fatal, error, warn, info, debug (default: info)"
   echo "  --config=FILE           Path to custom Jibril config.yaml file"
   echo "  --memory-request=SIZE   Set memory request (default: 2Gi)"
