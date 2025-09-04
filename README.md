@@ -18,26 +18,13 @@ layout:
 
 # Welcome
 
-<h2 align="center">The Lightweight Runtime Security Agent</h2>
-
 <figure><img src=".gitbook/assets/jibril-logo-simpler.png" alt="" width="375"><figcaption></figcaption></figure>
 
 <figure><img src=".gitbook/assets/garnet.png" alt="" width="188"><figcaption></figcaption></figure>
 
 Jibril is a cutting-edge runtime monitoring and threat detection engine, designed to deliver real-time insights with minimal impact on systems performance. Powered by eBPF, it remains efficient even under heavy event loads exceeding hundreds of thousands of events per second–delivering real-time protection for modern environments from dev to prod.
 
-| <h4><a href="information/theory-behind/new-era.md"><mark style="color:$warning;"><strong>Workload Visibility</strong></mark></a></h4> | <h4><a href="customization/alchemies/"><mark style="color:$warning;">YAML Detection Recipes</mark></a></h4>                | <h4><a href="execution/network-policy.md"><mark style="color:$warning;">Network Policies</mark></a></h4>   |
-| ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| <h4><a href="customization/reactions/configuration.md"><mark style="color:$warning;">GitOps Ready</mark></a></h4>                     | <h4><a href="information/theory-behind/architecture.md"><mark style="color:$warning;">Low Resources Impact</mark></a></h4> | <h4><a href="customization/reactions/"><mark style="color:$primary;">Programable Reactions</mark></a></h4> |
-| <h4><a href="information/theory-behind/security-model.md"><mark style="color:$warning;">Deep Cause Context</mark></a></h4>            | <h4><a href="customization/attenuator.md"><mark style="color:$warning;">Incidents Filtered by AI</mark></a></h4>           |                                                                                                            |
+<h2 align="center"><mark style="color:$danger;">The Lightweight Runtime Security Agent</mark></h2>
 
-{% hint style="info" %}
-**Key Benefits**
+<table data-header-hidden><thead><tr><th width="207.00390625">Feature</th><th>Key Benefits</th></tr></thead><tbody><tr><td><mark style="color:$primary;"><strong>High Performance</strong></mark></td><td>Maintains efficiency even under extensive event loads</td></tr><tr><td><mark style="color:$primary;"><strong>Lower Overhead</strong></mark></td><td>Significantly less overhead than its counter parts</td></tr><tr><td><mark style="color:$primary;"><strong>Complete Context</strong></mark></td><td><strong>C</strong>omprehensive context for deep forensic analysis on each event</td></tr><tr><td><mark style="color:$primary;"><strong>More Detections</strong></mark></td><td>100+ built-in detection rules available<br>2M+ tracked bad reputation domains</td></tr><tr><td><mark style="color:$primary;"><strong>Seamless Integration</strong></mark></td><td>Flexible output options for SIEM systems, logs, files, and APIs</td></tr><tr><td><mark style="color:$primary;"><strong>Reduced Noise</strong></mark></td><td>AI-powered filters false positives and enhances events using LLMs</td></tr><tr><td><mark style="color:$primary;"><strong>GitOps Ready</strong></mark></td><td>Manage detection recipes through git repositories</td></tr><tr><td><mark style="color:$primary;"><strong>Custom Detections</strong></mark></td><td>Create and manage detection recipes using YAML</td></tr><tr><td><mark style="color:$primary;"><strong>Reactions</strong></mark></td><td>Use javascript to program reactions to detection events</td></tr></tbody></table>
 
-* **High Performance -** Maintains efficiency even under extensive event loads exceeding hundreds of thousands of events per second.
-* **Lower Overhead -** Significantly less overhead than traditional eBPF tools through in-kernel storage delivery and query-driven architecture.
-* **Complete Context -** Each detection event provides comprehensive context for deep forensic analysis with tamper-proof data integrity.
-* **Detection -** 100+ built-in detection rules available with 2M+ tracked bad reputation domains across multiple threat categories.
-* **Seamless Integration -** Flexible output options for SIEM systems, logs, files, and APIs with authenticated channels.
-* **Reduced Noise -** AI-powered Attenuator filters false positives and enhances events using private and public LLM models including GPT-4o.
-{% endhint %}
