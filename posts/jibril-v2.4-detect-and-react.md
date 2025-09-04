@@ -5,7 +5,7 @@ icon: right-left-large
 
 # Jibril v2.4: Detect & React
 
-We've just released Jibril v2.4 with a new "Reactions" system that fundamentally changes how runtime security works. Instead of just detecting and alerting, you can now write JavaScript code that automatically executes in response to real-time OS security events - [https://jibril.garnet.ai/customization/reactions](../../customization/reactions/)
+We've just released Jibril v2.4 with a new "Reactions" system that fundamentally changes how runtime security works. Instead of just detecting and alerting, you can now write JavaScript code that automatically executes in response to real-time OS security events - [https://jibril.garnet.ai/customization/reactions](../customization/reactions/)
 
 ### 🔄 From Detection to Action in Milliseconds
 
@@ -124,14 +124,10 @@ The isolation model means reactions can safely perform powerful operations (incl
 
 ### 📚 Full documentation
 
-* [https://jibril.garnet.ai/customization/reactions](../../customization/reactions/)
-* [https://jibril.garnet.ai/customization/alchemies](../../customization/alchemies/)
-* [https://jibril.garnet.ai/customization/attenuator](../../customization/attenuator.md)
+* [https://jibril.garnet.ai/customization/reactions](../customization/reactions/)
+* [https://jibril.garnet.ai/customization/alchemies](../customization/alchemies/)
+* [https://jibril.garnet.ai/customization/attenuator](../customization/attenuator.md)
 
 ### 🤝 Follow us
 
 * Let's connect!
-* Meet us at **BlackHat**!
-* [https://jibril.garnet.ai](https://jibril.garnet.ai/)
-
-**Have fun!** 🎉

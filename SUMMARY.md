@@ -8,9 +8,6 @@
   * [New Paradigm](information/theory-behind/new-era.md)
   * [Architecture](information/theory-behind/architecture.md)
   * [Security Model](information/theory-behind/security-model.md)
-* [Posts](information/posts/README.md)
-  * [Jibril Runtime Security](information/posts/banner.md)
-  * [Jibril v2.4: Detect & React](information/posts/jibril-v2.4-detect-and-react.md)
 
 ## Installation
 
@@ -130,6 +127,12 @@
   * [JavaScript API](customization/reactions/javascript-api.md)
   * [Examples](customization/reactions/examples.md)
   * [Best Practices](customization/reactions/best-practices.md)
+
+***
+
+* [Posts](posts/README.md)
+  * [Jibril Runtime Security](posts/banner.md)
+  * [Jibril v2.4: Detect & React](posts/jibril-v2.4-detect-and-react.md)
 
 ## Support
 
