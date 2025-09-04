@@ -66,9 +66,10 @@ Controls evaluation of network flow patterns:
 
 ```yaml
 cadences:
-  file_access: 9      # Interval in seconds
-  network_peers: 9    # Interval in seconds
-  network_flows: 9    # Interval in seconds
+  file-access: 9
+  network-peers: 9
+  network-flows: 9
+  env-vars: 9
 ```
 
 ## <mark style="color:yellow;">Performance Impact</mark>
@@ -119,27 +120,30 @@ Shorter cadences may require larger caches because:
 
 ```yaml
 cadences:
-  file_access: 9
-  network_peers: 9
-  network_flows: 9
+  file-access: 9
+  network-peers: 9
+  network-flows: 9
+  env-vars: 9
 ```
 
 #### **High-Security Configuration**
 
 ```yaml
 cadences:
-  file_access: 3
-  network_peers: 5
-  network_flows: 5
+  file-access: 3
+  network-peers: 5
+  network-flows: 5
+  env-vars: 3
 ```
 
 #### **Resource-Conscious Configuration**
 
 ```yaml
 cadences:
-  file_access: 30
-  network_peers: 30
-  network_flows: 15
+  file-access: 30
+  network-peers: 30
+  network-flows: 30
+  env-vars: 30
 ```
 
 #### **Mixed Priority Configuration**
@@ -149,6 +153,7 @@ cadences:
   file_access: 5      # High priority on file monitoring
   network_peers: 30   # Lower priority on peer analysis
   network_flows: 15   # Medium priority on flow analysis
+  env-vars: 5         # High priority on env vars monitoring
 ```
 
 ## <mark style="color:yellow;">Important Notes</mark>
@@ -223,9 +228,10 @@ Consider staggering cadences to distribute CPU load:
 
 ```yaml
 cadences:
-  file_access: 9      # Evaluates at 0, 9, 18, 27...
-  network_peers: 10   # Evaluates at 0, 10, 20, 30...
-  network_flows: 11   # Evaluates at 0, 11, 22, 33...
+  file_access: 6
+  network_peers: 9
+  network_flows: 15
+  env-vars: 30
 ```
 
 ## <mark style="color:yellow;">Summary</mark>

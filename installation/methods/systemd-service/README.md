@@ -9,7 +9,7 @@ icon: list-tree
 ## <mark style="color:$primary;">Obtain Jibril</mark> <a href="#run-jibril-using-command-line-arguments" id="run-jibril-using-command-line-arguments"></a>
 
 ```
-sudo curl -L -o /usr/bin/jibril https://github.com/garnet-org/jibril-balag/releases/download/v2.5/loader
+sudo curl -L -o /usr/bin/jibril https://github.com/garnet-org/jibril-releases/releases/download/v2.6/loader
 ```
 
 ```
