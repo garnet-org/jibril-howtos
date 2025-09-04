@@ -237,28 +237,64 @@ if [ -n "$CONFIG_FILE" ]; then
 
 else
   # Use the default config
-  CONFIG_YAML="    log-level: ${LOG_LEVEL}
-    stdout: /var/log/jibril/jibril.log
-    stderr: /var/log/jibril/jibril.err
-    profiler: false
-    daemon: true
-    cardinal: true
-    extension:
-      - jibril
-      - config
-      - data
-    plugin:
-      - jibril:hold
-      - jibril:procfs
-      - jibril:printers
-      # - jibril:jbconfig
-      # - jibril:pause
-      # - jibril:attenuator:enabled=true:model=gpt-4o:temperature=0.3:mode=reason
-      - jibril:detect
-      # - jibril:netpolicy:file=/etc/jibril/netpolicy.yaml
-    printer:
-      - jibril:printers:stdout:raw=true
-    event:
+  CONFIG_YAML="    #### Standalone Config File.
+
+    run-time:
+      log-level: ${LOG_LEVEL}
+      profiler: false
+      health: true
+      cardinal: true
+      stdout: /var/log/jibril/jibril.log
+      stderr: /var/log/jibril/jibril.err
+
+    #### Cadences.
+
+    cadences:
+      file-access: 9
+      network-peers: 9
+      network-flows: 9
+      env-vars: 9
+
+    #### Caches.
+
+    caches:
+      rec-tasks: 32
+      tasks: 64
+      cmds: 32
+      args: 32
+      files: 32
+      dirs: 8
+      bases: 16
+      task-file: 512
+      file-task: 512
+      task-ref: 512
+      flows: 128
+      task-flow: 128
+      flow-task: 128
+      flow-ref: 128
+
+    #### Old Config.
+
+    # This is the old config file being used for backward compatibility.
+    # It will be removed in the future.
+
+    config:
+      extension:
+        - jibril
+        - config
+        - data
+      plugin:
+        - jibril:hold
+        - jibril:procfs
+        - jibril:printers
+        # - jibril:jbconfig
+        # - jibril:pause
+        # - jibril:attenuator:enabled=true:model=gpt-4o:temperature=0.3:mode=reason
+        - jibril:detect
+        # - jibril:netpolicy:file=/etc/jibril/netpolicy.yaml
+      printer:
+        - jibril:printers:stdout:raw=true
+      event:
       # Network policy.
       # - jibril:netpolicy:dropip
       # - jibril:netpolicy:dropdomain
@@ -289,7 +325,7 @@ else
       - jibril:detect:ssl_certificate_access
       - jibril:detect:sudoers_modification
       - jibril:detect:sysrq_access
-      - jibril:detect:unprivileged_bpf_config_access      
+      - jibril:detect:unprivileged_bpf_config_access
       # Method: execution.
       - jibril:detect:binary_executed_by_loader
       - jibril:detect:code_on_the_fly

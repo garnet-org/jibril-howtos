@@ -93,24 +93,61 @@ You can provide a custom Jibril configuration file:
 ```bash
 # Create a custom config file (e.g., jibril-config.yaml)
 cat > jibril-config.yaml <<EOF
-log-level: debug
-stdout: stdout
-stderr: stderr
-profiler: true
-cardinal: true
-extension:
-  - config
-  - data
-  - jibril
-plugin:
-  - jibril:hold
-  - jibril:procfs
-  - jibril:printers
-  - jibril:detect
-printer:
-  - jibril:printers:varlog
-event:
-  # Add your custom events here
+#### Standalone Config File.
+
+run-time:
+  log-level: debug
+  profiler: true
+  health: true
+  cardinal: true
+  stdout: stdout
+  stderr: stderr
+
+#### Cadences.
+
+cadences:
+  file-access: 9
+  network-peers: 9
+  network-flows: 9
+  env-vars: 9
+
+#### Caches.
+
+caches:
+  rec-tasks: 32
+  tasks: 64
+  cmds: 32
+  args: 32
+  files: 32
+  dirs: 8
+  bases: 16
+  task-file: 512
+  file-task: 512
+  task-ref: 512
+  flows: 128
+  task-flow: 128
+  flow-task: 128
+  flow-ref: 128
+
+#### Old Config.
+
+# This is the old config file being used for backward compatibility.
+# It will be removed in the future.
+
+config:
+  extension:
+    - config
+    - data
+    - jibril
+  plugin:
+    - jibril:hold
+    - jibril:procfs
+    - jibril:printers
+    - jibril:detect
+  printer:
+    - jibril:printers:varlog
+  event:
+    # Add your custom events here
 EOF
 
 # Deploy with custom config
@@ -209,7 +246,7 @@ fluent-bit:
           Format json
           json_date_key timestamp
           json_date_format iso8601
-      
+
       [OUTPUT]
           Name opensearch
           Match *
@@ -246,7 +283,7 @@ fluent-bit:
           Format json
           json_date_key timestamp
           json_date_format iso8601
-      
+
       [OUTPUT]
           Name opensearch
           Match *
@@ -277,7 +314,7 @@ fluent-bit:
           Format json
           json_date_key timestamp
           json_date_format iso8601
-      
+
       [OUTPUT]
           Name opensearch
           Match *
@@ -312,7 +349,7 @@ fluent-bit:
           Format json
           json_date_key timestamp
           json_date_format iso8601
-      
+
       [OUTPUT]
           Name opensearch
           Match *
@@ -369,7 +406,7 @@ fluent-bit:
           Format json
           json_date_key timestamp
           json_date_format iso8601
-      
+
       [OUTPUT]
           Name opensearch
           Match *
@@ -408,7 +445,7 @@ fluent-bit:
     requests:
       memory: 128Mi
       cpu: 200m
-  
+
   opensearch:
     enabled: true
     host: opensearch-cluster.elastic.svc.cluster.local
@@ -460,11 +497,12 @@ kubectl logs -n security -l app.kubernetes.io/name=fluent-bit | grep -i "jibril"
 
 ### Troubleshooting Fluent Bit
 
-1.  **Fluent Bit pods not starting**:
+1. **Fluent Bit pods not starting**:
 
     ```bash
     kubectl describe pod -n security <fluent-bit-pod-name>
     ```
+
 2. **Logs not appearing in OpenSearch**:
    * Check Fluent Bit logs for errors
    * Verify network connectivity to OpenSearch

@@ -25,7 +25,7 @@ Think of cadences as the "heartbeat" of your security monitoring:
 2. **Pattern Evaluation**: Analysis occurs at **cadence intervals**
 3. **Detection Events**: Generated when patterns match during evaluation
 
-```
+```text
 Timeline Example (9-second cadence):
 0s -------- 9s -------- 18s -------- 27s -------- 36s
 |           |           |            |            |
@@ -61,6 +61,15 @@ Controls evaluation of network flow patterns:
 * Unusual protocol usage
 * Data exfiltration patterns
 * Command and control communications
+
+### 4. Environment Variables Cadence (`env_vars`)
+
+Controls evaluation of environment variable behavioral patterns:
+
+* Dynamic linker manipulation attempts
+* LD_PRELOAD and LD_LIBRARY_PATH modifications
+* Suspicious environment variable injections
+* Process environment tampering detection
 
 ## <mark style="color:yellow;">Configuration Syntax</mark>
 
@@ -150,9 +159,9 @@ cadences:
 
 ```yaml
 cadences:
-  file_access: 5      # High priority on file monitoring
-  network_peers: 30   # Lower priority on peer analysis
-  network_flows: 15   # Medium priority on flow analysis
+  file-access: 5      # High priority on file monitoring
+  network-peers: 30   # Lower priority on peer analysis
+  network-flows: 15   # Medium priority on flow analysis
   env-vars: 5         # High priority on env vars monitoring
 ```
 
@@ -215,11 +224,11 @@ While not built-in, you can implement time-based cadence changes:
 ```yaml
 # Peak hours configuration (via external scheduler)
 cadences:
-  file_access: 5      # More frequent during business hours
+  file-access: 5      # More frequent during business hours
 
 # Off-hours configuration
 cadences:
-  file_access: 30     # Less frequent overnight
+  file-access: 30     # Less frequent overnight
 ```
 
 ### Cadence Synchronization
@@ -228,9 +237,9 @@ Consider staggering cadences to distribute CPU load:
 
 ```yaml
 cadences:
-  file_access: 6
-  network_peers: 9
-  network_flows: 15
+  file-access: 6
+  network-peers: 9
+  network-flows: 15
   env-vars: 30
 ```
 

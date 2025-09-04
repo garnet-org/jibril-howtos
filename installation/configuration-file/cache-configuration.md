@@ -19,57 +19,50 @@ Jibril's caches are designed to store transient data related to system activitie
 
 These caches store information about running processes and their execution context.
 
-* `jb_tasks`\
-  Stores information about OS processes observed by Jibril.
-* `jb_cmds`\
-  Caches the command lines used to start tasks.
-* `jb_args`\
-  Stores the arguments passed to commands.
-* `jb_rectasks`\
+* `rec-tasks`\
   Holds data for recent tasks for short-term historical analysis.
-* `jb_thashcache`\
-  A cache for task hashes (to avoid hash calculations).
+* `tasks`\
+  Stores information about OS processes observed by Jibril.
+* `cmds`\
+  Caches the command lines used to start tasks.
+* `args`\
+  Stores the arguments passed to commands.
 
 ### <mark style="color:yellow;">File-Related Caches</mark>
 
 These caches manage data related to file system access and modifications.
 
-* `jb_files`\
+* `files`\
   Caches information about accessed files.
-* `jb_dirs`\
+* `dirs`\
   Stores data related to accessed directories.
-* `jb_bases`\
+* `bases`\
   Caches base paths for files.
-* `jb_filetask`\
-  Maps files to the tasks that accessed them.
-* `jb_taskfile`\
+* `task-file`\
   Maps tasks to the files they accessed.
-* `jb_filerefs`\
-  Tracks references to files.
+* `file-task`\
+  Maps files to the tasks that accessed them.
+* `task-ref`\
+  Tracks references to tasks.
 
 ### <mark style="color:yellow;">Flow-Related Caches (Network)</mark>
 
 These caches store information about network communications.
 
-* `jb_flows`\
+* `flows`\
   Caches network flow data.
-* `jb_taskflow`\
+* `task-flow`\
   Maps tasks to the network flows they are associated with.
-* `jb_flowtask`\
+* `flow-task`\
   Maps network flows back to the tasks responsible for them.
-* `jb_flowrefs`\
+* `flow-ref`\
   Tracks references to network flows.
 
 ### <mark style="color:yellow;">Domain-Related Caches (Network)</mark>
 
 These caches store information related to network domain resolutions and peer connections.
 
-* `jb_domains`\
-  Caches resolved domain names.
-* `jb_canons`\
-  Stores canonical domain names, which helps in normalizing domain representations (e.g., handling CNAMEs).
-* `jb_peers`\
-  Caches information about network peers (e.g., remote IP addresses).
+Domain-related caches are included in the old config section for backward compatibility.
 
 ## <mark style="color:yellow;">Cache Size Examples</mark>
 
@@ -81,33 +74,20 @@ This is the default set of values and good for most of the use cases.
 
 ```yaml
 caches:
-  # Tasks.
-  jb_tasks: 65536    # Tasks.
-  jb_cmds: 32768     # Commands.
-  jb_args: 32768     # Arguments.
-  jb_rectasks: 4096  # Recent tasks.
-  jb_thashcache: 4096 # Task hash cache.
-
-  # Files.
-  jb_files: 32768    # Files.
-  jb_dirs: 8192      # Directories.
-  jb_bases: 16384    # Bases.
-  # Files references.
-  jb_filetask: 32768 # File + Task.
-  jb_taskfile: 32768 # Task + File.
-  jb_filerefs: 32768 # File references.
-
-  # Flows.
-  jb_flows: 32768    # Flows.
-  # Flows references.
-  jb_taskflow: 32768 # Task + Flow.
-  jb_flowtask: 32768 # Flow + Task.
-  jb_flowrefs: 32768 # Flow references.
-
-  # Domains.
-  jb_domains: 16384  # Domains.
-  jb_canons: 16384   # Canonical domains.
-  jb_peers: 16384    # Peers.
+  rec-tasks: 32
+  tasks: 64
+  cmds: 32
+  args: 32
+  files: 32
+  dirs: 8
+  bases: 16
+  task-file: 512
+  file-task: 512
+  task-ref: 512
+  flows: 128
+  task-flow: 128
+  flow-task: 128
+  flow-ref: 128
 ```
 
 {% hint style="success" %}
@@ -120,33 +100,20 @@ This configuration significantly reduces cache sizes to minimize Jibril's memory
 
 ```yaml
 caches:
-  # Tasks.
-  jb_tasks: 16384    # Tasks.
-  jb_cmds: 8192      # Commands.
-  jb_args: 8192      # Arguments.
-  jb_rectasks: 8192  # Recent tasks.
-  jb_thashcache: 4096 # Task hash cache.
-
-  # Files.
-  jb_files: 8192     # Files.
-  jb_dirs: 8192      # Directories.
-  jb_bases: 8192     # Bases.
-  # Files references.
-  jb_filetask: 16384 # File + Task.
-  jb_taskfile: 16384 # Task + File.
-  jb_filerefs: 16384 # File references.
-
-  # Flows.
-  jb_flows: 8192     # Flows.
-  # Flows references.
-  jb_taskflow: 16384 # Task + Flow.
-  jb_flowtask: 16384 # Flow + Task.
-  jb_flowrefs: 16384 # Flow references.
-
-  # Domains.
-  jb_domains: 8192   # Domains.
-  jb_canons: 8192    # Canonical domains.
-  jb_peers: 8192     # Peers.
+  rec-tasks: 16
+  tasks: 32
+  cmds: 16
+  args: 16
+  files: 16
+  dirs: 4
+  bases: 8
+  task-file: 256
+  file-task: 256
+  task-ref: 256
+  flows: 64
+  task-flow: 64
+  flow-task: 64
+  flow-ref: 64
 ```
 
 {% hint style="success" %}
@@ -159,33 +126,20 @@ This configuration increases cache sizes, particularly for file and flow-related
 
 ```yaml
 caches:
-  # Tasks.
-  jb_tasks: 65536     # Tasks.
-  jb_cmds: 32768      # Commands.
-  jb_args: 32768      # Arguments.
-  jb_rectasks: 32768  # Recent tasks.
-  jb_thashcache: 8192   # Task hash cache.
-
-  # Files.
-  jb_files: 32768     # Files.
-  jb_dirs: 32768      # Directories.
-  jb_bases: 32768     # Bases.
-  # Files references.
-  jb_filetask: 524288 # File + Task.
-  jb_taskfile: 524288 # Task + File.
-  jb_filerefs: 524288 # File references.
-
-  # Flows.
-  jb_flows: 32768     # Flows.
-  # Flows references.
-  jb_taskflow: 131072 # Task + Flow.
-  jb_flowtask: 131072 # Flow + Task.
-  jb_flowrefs: 131072 # Flow references.
-
-  # Domains.
-  jb_domains: 32768   # Domains.
-  jb_canons: 32768    # Canonical domains.
-  jb_peers: 32768     # Peers.
+  rec-tasks: 64
+  tasks: 128
+  cmds: 64
+  args: 64
+  files: 64
+  dirs: 16
+  bases: 32
+  task-file: 1024
+  file-task: 1024
+  task-ref: 1024
+  flows: 256
+  task-flow: 256
+  flow-task: 256
+  flow-ref: 256
 ```
 
 {% hint style="warning" %}

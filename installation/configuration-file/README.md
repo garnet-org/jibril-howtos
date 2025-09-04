@@ -7,7 +7,7 @@ icon: sliders-up
 ## <mark style="color:yellow;">Defaults: /etc/jibril/config.yaml</mark>
 
 ```yaml
-#### Github Config File.
+#### Standalone Config File.
 
 run-time:
   log-level: simple
@@ -49,9 +49,10 @@ caches:
   flow-task: 128
   flow-ref: 128
 
-#### Config.
+#### Old Config.
 
-# This is the old config file syntax used for backward compatibility.
+# This is the old config file being used for backward compatibility.
+# It will be removed in the future.
 
 config:
   extension:

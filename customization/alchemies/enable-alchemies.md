@@ -35,26 +35,59 @@ The directory path must be a valid path to a directory and is not recursive.
 Example of a [config.yaml](../../installation/configuration-file/) file with the alchemies plugin configured:
 
 ```yaml
-#### Jibril Configuration File
+#### Standalone Config File.
 
-log-level: info
-stdout: stdout
-stderr: stderr
+run-time:
+  log-level: info
+  profiler: false
+  health: true
+  cardinal: true
+  stdout: stdout
+  stderr: stderr
 
-extension:
-  - jibril
+#### Cadences.
 
-plugin:
-  # Enable alchemies with custom recipe directory
-  - jibril:alchemies:path=/etc/jibril/alchemies/
-  - jibril:detect
+cadences:
+  file-access: 9
+  network-peers: 9
+  network-flows: 9
+  env-vars: 9
 
-printer:
-  - jibril:printers:stdout
+#### Caches.
 
-event:
-  # Events will be automatically enabled based on recipes
-  - jibril:detect:file_example
-  - jibril:detect:exec_example
-  - jibril:detect:peer_example
+caches:
+  rec-tasks: 32
+  tasks: 64
+  cmds: 32
+  args: 32
+  files: 32
+  dirs: 8
+  bases: 16
+  task-file: 512
+  file-task: 512
+  task-ref: 512
+  flows: 128
+  task-flow: 128
+  flow-task: 128
+  flow-ref: 128
+
+#### Old Config.
+
+# This is the old config file being used for backward compatibility.
+# It will be removed in the future.
+
+config:
+  extension:
+    - jibril
+  plugin:
+    # Enable alchemies with custom recipe directory
+    - jibril:alchemies:path=/etc/jibril/alchemies/
+    - jibril:detect
+  printer:
+    - jibril:printers:stdout
+  event:
+    # Events will be automatically enabled based on recipes
+    - jibril:detect:file_example
+    - jibril:detect:exec_example
+    - jibril:detect:peer_example
 ```
